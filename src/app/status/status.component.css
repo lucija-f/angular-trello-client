@@ -1,0 +1,55 @@
+h2{
+  margin-bottom: 0px;
+  margin-left: 3%;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(55, 55, 55);
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.btn-add{
+  margin-top: 4%;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  border-radius: .25rem;
+  box-sizing: border-box;
+  color: rgb(85, 85, 85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  justify-content: left;
+  line-height: 1.25;
+  min-height: 2rem;
+  padding: 1% 3%;
+  width: 100%;
+}
+
+.example-list {
+  padding: 1% 0%;
+  width: 20%;
+  border: solid 1px #ccc;
+  min-height: 60px;
+  display: inline-block;
+  background: rgb(220, 217, 217, 0.7);
+  margin: 0% 1%;
+  border-radius: 5px;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

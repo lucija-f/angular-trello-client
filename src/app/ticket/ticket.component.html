@@ -1,0 +1,17 @@
+<div cdkDropList 
+  class="example-list" 
+  (cdkDropListDropped)="onDrop($event)"
+  [cdkDropListData]="tickets"
+>
+  <div cdkDrag 
+      class="example-box" 
+      *ngFor="let ticket of tickets" 
+      [cdkDragData]="ticket">
+      <p class="ticket-title">{{ticket.title}}</p>
+      <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+      <p class="ticket-body">{{ticket.description}}</p>
+  </div>
+</div>
+
+  
+

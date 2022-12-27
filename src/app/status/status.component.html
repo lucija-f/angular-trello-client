@@ -1,0 +1,11 @@
+<div  
+  *ngFor="let status of statuses"
+  class="example-list" 
+>
+<div>
+  <h2>{{status.name}} {{status.id}}</h2>
+  <app-ticket [statusId]="status.id" ></app-ticket>
+  <button class="btn-add" onclick="addTicket(status.id)">+ Add new ticket...</button>
+</div>
+  
+</div>  
