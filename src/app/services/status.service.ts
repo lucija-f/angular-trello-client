@@ -16,4 +16,12 @@ export class StatusService {
     return this.http.get<Status[]>(`${this.baseUrl}`);
   }
 
+  addStatusColumn(status: Status): Observable<Status> {
+    return this.http.post<Status>(`${this.baseUrl}`, status)
+  }
+
+  deleteStatus(statusId: number): Observable<Object> {
+    return this.http.delete(`${this.baseUrl}/${statusId}`)
+  }
+
 }

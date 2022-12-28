@@ -21,4 +21,12 @@ export class TicketService {
     console.log('status', statusId);
     return this.http.patch<Ticket>(`${this.baseUrl}/${ticketId}`, {statusId: statusId})
   }
+
+  createTicket(ticket: Ticket): Observable<Ticket> {
+    return this.http.post<Ticket>(`${this.baseUrl}`, ticket)
+  }
+
+  deleteTicket(ticketId: number): Observable<Object> {
+    return this.http.delete(`${this.baseUrl}/${ticketId}`)
+  }
 }

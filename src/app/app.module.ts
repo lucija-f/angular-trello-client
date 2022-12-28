@@ -10,6 +10,9 @@ import {
 	IgxButtonModule,
 	IgxToggleModule
  } from "igniteui-angular";
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
 
 import { AppComponent } from './app.component';
 import { StatusComponent } from './status/status.component';
@@ -21,7 +24,7 @@ import { TicketComponent } from './ticket/ticket.component';
     AppComponent,
     StatusComponent,
     DropDownComponent,
-    TicketComponent
+    TicketComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -31,7 +34,9 @@ import { TicketComponent } from './ticket/ticket.component';
     IgxDropDownModule,
     IgxButtonModule,
     IgxToggleModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],

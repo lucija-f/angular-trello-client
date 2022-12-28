@@ -3,9 +3,22 @@
   class="example-list" 
 >
 <div>
-  <h2>{{status.name}} {{status.id}}</h2>
+  <div style="display: flex;">
+    <h2>{{status.name}}</h2>
+    <div style="width: 35%; display: flex; justify-content: flex-end;  height: auto;">
+      <button mat-icon-button class="btn-edit-delete"  >
+        <mat-icon>border_color</mat-icon>
+      </button>
+      <button mat-icon-button class="btn-edit-delete" (click)="deleteStatusColumn(status.id)">
+        <mat-icon>highlight_off</mat-icon>
+      </button>
+    </div>
+  </div>
+  
   <app-ticket [statusId]="status.id" ></app-ticket>
-  <button class="btn-add" onclick="addTicket(status.id)">+ Add new ticket...</button>
+  <button class="btn-add" (click)="addTicket(status.id)">+ ADD NEW TICKET...</button>
 </div>
   
 </div>  
+
+

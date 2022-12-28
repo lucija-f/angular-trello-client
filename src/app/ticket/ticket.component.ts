@@ -42,4 +42,28 @@ export class TicketComponent implements OnInit {
     }
   }
 
+  addNewTicket(status: number){
+    this.ticketSevice.createTicket({title: 'New Ticket Title', description: 'New description', statusId: status}).subscribe(
+      {
+        next: (t) => this.tickets.push(t),
+        error: (e) => console.error(e),
+        complete: () => console.info('complete') 
+    }
+    );
+  }
+
+  deleteTicket(ticketId: number){
+    this.ticketSevice.deleteTicket(ticketId).subscribe(
+      {
+        next: () => {
+          this.tickets = this.tickets.filter(function( obj ) {
+            return obj.id !== ticketId;
+          });
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete') 
+      }
+    );
+  }
+
 }

@@ -3,6 +3,7 @@
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   margin: 0;
   font-weight: 550;
+  width: 90%;
 }
 
 .ticket-body{
@@ -10,6 +11,16 @@
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   margin: 4% 0%;
   font-weight: 400;
+}
+
+.btn-delete{
+  width: 10%;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+  color: rgb(153, 152, 152);;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .wrapper {
@@ -27,10 +38,8 @@
 }
 
 .example-list {
-  /* padding: 3%; */
   width: 93%;
   min-height: 60px;
-  /* display: inline-block; */
   display: flex;
   flex-direction: column;
   align-items: center;

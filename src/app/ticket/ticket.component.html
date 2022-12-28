@@ -7,7 +7,11 @@
       class="example-box" 
       *ngFor="let ticket of tickets" 
       [cdkDragData]="ticket">
-      <p class="ticket-title">{{ticket.title}}</p>
+      <div style="display: flex;">
+        <p class="ticket-title">{{ticket.title}}</p>
+        <button class="btn-delete" (click)="deleteTicket(ticket.id)" >X</button>
+      </div>
+      
       <hr style="height:1px;border-width:0;color:gray;background-color:gray">
       <p class="ticket-body">{{ticket.description}}</p>
   </div>

@@ -3,12 +3,10 @@
   height: 100%;
   background-color: #6f85f9;
   background-image: linear-gradient(315deg, #6f85f9 0%, #e477dc 46%, #f0c67f 100%);
-  /* flex-direction: row; */
 }
 
 .board-element {
   padding: 2%;
-  /* background-color: blue; */
   height: auto;
 }
 
@@ -24,4 +22,5 @@
 	height: 2em;
 	width: 2em;
 	border-radius: 999px;
+  cursor: pointer;
 }
