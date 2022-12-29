@@ -7,9 +7,14 @@
       class="example-box" 
       *ngFor="let ticket of tickets" 
       [cdkDragData]="ticket">
-      <div style="display: flex;">
+      <div style="display: flex; align-items: center;">
         <p class="ticket-title">{{ticket.title}}</p>
-        <button class="btn-delete" (click)="deleteTicket(ticket.id)" >X</button>
+        <button mat-icon-button class="btn-edit-delete" (click)="OpenPopup(ticket.id)">
+          <mat-icon>border_color</mat-icon>
+        </button>
+        <button class="btn-edit-delete" (click)="deleteTicket(ticket.id)" >
+          <mat-icon>close</mat-icon>
+        </button>
       </div>
       
       <hr style="height:1px;border-width:0;color:gray;background-color:gray">

@@ -24,4 +24,8 @@ export class StatusService {
     return this.http.delete(`${this.baseUrl}/${statusId}`)
   }
 
+  patchStatusColumn(statusId: number, title: string): Observable<Status> {
+    return this.http.patch<Status>(`${this.baseUrl}/${statusId}`, {name: title})
+  }
+
 }

@@ -13,9 +13,17 @@
   font-weight: 400;
 }
 
+.btn-edit-delete{
+  color: rgb(153, 152, 152);
+  cursor: pointer;
+  transform: scale(0.6);
+  align-items: flex-end;
+  background-color: transparent;
+  border: none;
+}
+
 .btn-delete{
   width: 10%;
-  border-radius: 999px;
   background: transparent;
   border: none;
   color: rgb(153, 152, 152);;
@@ -49,7 +57,7 @@
 }
 
 .example-box {
-  padding: 10px;
+  padding: 0% 3% 1%;
   width: 100%;
   border-bottom: solid 3px rgb(153, 152, 152);
   margin: 2% 1%;

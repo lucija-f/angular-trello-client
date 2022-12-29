@@ -2,6 +2,8 @@ import { CdkDragDrop, CdkDragExit, moveItemInArray, transferArrayItem } from '@a
 import { Component, OnInit, Input } from '@angular/core';
 import { Ticket } from 'src/models/ticket';
 import { TicketService } from '../services/ticket.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalTicketComponent } from '../modal-ticket/modal-ticket.component';
 
 @Component({
   selector: 'app-ticket',
@@ -14,11 +16,14 @@ export class TicketComponent implements OnInit {
   @Input() statusId: number;
 
   public tickets: Ticket[];
-  constructor( private ticketSevice: TicketService) {}
+  constructor( private ticketSevice: TicketService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
+    this.getAllTicketInColumn(this.statusId);
+  }
+
+  getAllTicketInColumn(statusId: number) {
     this.ticketSevice.getTickets(this.statusId).subscribe((data: Ticket[]) => {
-      console.log(data);
       this.tickets = data;
     })
   }
@@ -64,6 +69,36 @@ export class TicketComponent implements OnInit {
         complete: () => console.info('complete') 
       }
     );
+  }
+
+  patchTicket(ticketId: number, title: string, description: string){
+    this.ticketSevice.patchTicket(ticketId, title, description).subscribe(
+      {
+        next: (v) => {
+          const objIndex = this.tickets.findIndex((ticket => ticket.id == v.id));
+          this.tickets[objIndex].title = v.title;
+          this.tickets[objIndex].description = v.description;
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete') 
+      }
+    );
+  }
+
+  OpenPopup(ticketId: number, title: string, description: string){
+    const dialogRef = this.dialog.open(ModalTicketComponent, {
+      width: '400px',
+      data: {title: title, ticketId: ticketId, description: description},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+      title = result.title;
+      description = result.description;
+      this.patchTicket(ticketId, title, description);
+      }
+      this.getAllTicketInColumn(this.statusId); 
+    });
   }
 
 }

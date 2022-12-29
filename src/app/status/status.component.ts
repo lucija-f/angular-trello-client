@@ -3,6 +3,8 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { StatusService } from '../services/status.service';
 import { Status } from 'src/models/status';
 import { TicketComponent } from '../ticket/ticket.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalStatusComponent } from '../modal-status/modal-status.component';
 
 @Component({
   selector: 'status-column',
@@ -11,8 +13,9 @@ import { TicketComponent } from '../ticket/ticket.component';
 })
 export class StatusComponent implements OnInit {
 
+  title: string;
   public statuses: Status[];
-  constructor( private statusService: StatusService) {}
+  constructor( private statusService: StatusService, private dialog: MatDialog) {}
 
   @ViewChild(TicketComponent) ticketComponent: TicketComponent;
 
@@ -49,6 +52,31 @@ export class StatusComponent implements OnInit {
         complete: () => console.info('complete') 
       }
     );
+  }
+
+  patchStatusColumn(statusId: number, title: string){
+    this.statusService.patchStatusColumn(statusId, title).subscribe(
+      {
+        next: (v) => {
+          const objIndex = this.statuses.findIndex((status => status.id == v.id));
+          this.statuses[objIndex].name = v.name;
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete') 
+      }
+    );
+  }
+
+  OpenPopup(statusId: number){
+    const dialogRef = this.dialog.open(ModalStatusComponent, {
+      width: '400px',
+      data: {title: this.title, statusId: statusId},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.title = result;
+      this.patchStatusColumn(statusId, this.title);
+    });
   }
 
 }

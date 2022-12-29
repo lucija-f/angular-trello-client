@@ -12,12 +12,16 @@ import {
  } from "igniteui-angular";
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 import { AppComponent } from './app.component';
 import { StatusComponent } from './status/status.component';
 import { DropDownComponent } from './drop-down/drop-down.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { ModalStatusComponent } from './modal-status/modal-status.component';
+import {MatInputModule} from '@angular/material/input';
+import { ModalTicketComponent } from './modal-ticket/modal-ticket.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,8 @@ import { TicketComponent } from './ticket/ticket.component';
     StatusComponent,
     DropDownComponent,
     TicketComponent,
+    ModalStatusComponent,
+    ModalTicketComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -36,7 +42,9 @@ import { TicketComponent } from './ticket/ticket.component';
     IgxToggleModule,
     HttpClientModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent],

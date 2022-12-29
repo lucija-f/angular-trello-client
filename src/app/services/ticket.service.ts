@@ -17,9 +17,11 @@ export class TicketService {
   }
 
   changeStatus(ticketId: number, statusId: number): Observable<Ticket> {
-    console.log('ticket', ticketId);
-    console.log('status', statusId);
     return this.http.patch<Ticket>(`${this.baseUrl}/${ticketId}`, {statusId: statusId})
+  }
+
+  patchTicket(ticketId: number, title: string, description: string): Observable<Ticket> {
+    return this.http.patch<Ticket>(`${this.baseUrl}/${ticketId}`, {title, description })
   }
 
   createTicket(ticket: Ticket): Observable<Ticket> {
