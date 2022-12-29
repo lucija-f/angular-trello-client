@@ -22,6 +22,7 @@ import { TicketComponent } from './ticket/ticket.component';
 import { ModalStatusComponent } from './modal-status/modal-status.component';
 import {MatInputModule} from '@angular/material/input';
 import { ModalTicketComponent } from './modal-ticket/modal-ticket.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ModalTicketComponent } from './modal-ticket/modal-ticket.component';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent],

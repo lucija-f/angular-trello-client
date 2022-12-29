@@ -1,4 +1,5 @@
-<div cdkDropList 
+<cdk-virtual-scroll-viewport class="viewport" itemSize="50">
+  <div cdkDropList 
   class="example-list" 
   (cdkDropListDropped)="onDrop($event)"
   [cdkDropListData]="tickets"
@@ -21,6 +22,8 @@
       <p class="ticket-body">{{ticket.description}}</p>
   </div>
 </div>
+</cdk-virtual-scroll-viewport>
+
 
   
 

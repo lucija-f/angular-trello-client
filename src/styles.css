@@ -6,8 +6,10 @@
   padding: 0;
 }
 
-html, body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue",Helvetica,Arial,sans-serif;
+html,
+body {
+  font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
   height: 100%;
+  background-color: #6f85f9;
+  background-image: linear-gradient(315deg, #6f85f9 0%, #e477dc 46%, #f0c67f 100%);
 }
