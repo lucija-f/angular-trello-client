@@ -1,8 +1,7 @@
 <div class="board-element">
-  <mat-label style="width: 20%; display: inline-block; font-size: 20px;">TRELLO BOARD</mat-label>
+  <mat-label style="width: 20%; align-self: center; padding-bottom: 1%; font-size: 20px;">TRELLO BOARD</mat-label>
   <mat-form-field appearance = outline>
     <div style="width: auto; display: inline-block;">
-    
       <mat-select placeholder="CHOOSE YOUR BOARD" [(value)]="selectVal" (selectionChange)="changeBoard(selectVal)">
         <mat-option 
           *ngFor="let board of boards" 
@@ -12,17 +11,15 @@
       </mat-select>
     </div>
   </mat-form-field>
+  <div style="width: 15%; display: inline-block;  margin-left: auto;">
+    <button mat-icon-button class="btn-add-delete" (click)="openPopupAddNewBoard()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <button mat-icon-button class="btn-add-delete" (click)="deleteBoard(selectVal)">
+      <mat-icon>delete_outline</mat-icon>
+    </button>
+  </div>
 </div>
 <div class="board-handle">
   <board [id]="selectVal"></board>
 </div>
-
-<!-- <div  cdkDropListGroup class="board-handle">
-  <status-column></status-column>
-  <button (click)="addNewColumn()" class="plus-button">+</button>
-</div> -->
-
-
-
-
-

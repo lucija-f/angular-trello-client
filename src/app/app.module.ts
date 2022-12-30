@@ -26,6 +26,7 @@ import { ModalStatusComponent } from './modal-status/modal-status.component';
 import { ModalTicketComponent } from './modal-ticket/modal-ticket.component';
 import { BoardComponent } from './board/board.component';
 import { ModalMsgComponent } from './modal-msg/modal-msg.component';
+import { ModalAddNewComponent } from './modal-add-new/modal-add-new.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { ModalMsgComponent } from './modal-msg/modal-msg.component';
     ModalTicketComponent,
     BoardComponent,
     ModalMsgComponent,
+    ModalAddNewComponent,
   ],
   imports: [
     BrowserAnimationsModule,

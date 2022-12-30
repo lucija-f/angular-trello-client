@@ -50,10 +50,10 @@ export class TicketComponent implements OnInit {
   addNewTicket(status: number){
     this.ticketSevice.createTicket({title: 'New Ticket Title', description: 'New description', statusId: status}).subscribe(
       {
-        next: () => window.location.reload(),
+        next: (t) => console.log(t),
         error: (e) => console.error(e),
         complete: () => console.info('complete')
-    }
+      }
     );
   }
 

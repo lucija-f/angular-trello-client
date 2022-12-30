@@ -23,8 +23,9 @@ export class StatusComponent {
 
   @ViewChild(TicketComponent) ticketComponent: TicketComponent;
 
-  addTicket(status: number) {
-    this.ticketComponent.addNewTicket(status);
+  addTicket(status: Status) {
+    this.ticketComponent.addNewTicket(status.id);
+    this.showColumns(status.boardId)
   }
 
   showColumns(boardId: number){
@@ -35,8 +36,6 @@ export class StatusComponent {
 
   addStatusColumn(boardId: number){
     if (this.statuses != undefined){
-      console.log('BoardID', boardId);
-      
       this.statusService.addStatusColumn({name: 'New Status', boardId: boardId}).subscribe(
         {
           next: (v) => this.statuses.push(v),
