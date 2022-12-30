@@ -13,6 +13,9 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatSelectModule } from '@angular/material/select';
 
 
 import { AppComponent } from './app.component';
@@ -20,9 +23,10 @@ import { StatusComponent } from './status/status.component';
 import { DropDownComponent } from './drop-down/drop-down.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { ModalStatusComponent } from './modal-status/modal-status.component';
-import {MatInputModule} from '@angular/material/input';
 import { ModalTicketComponent } from './modal-ticket/modal-ticket.component';
-import { ScrollingModule } from '@angular/cdk/scrolling';
+import { BoardComponent } from './board/board.component';
+import { ModalMsgComponent } from './modal-msg/modal-msg.component';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +36,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     TicketComponent,
     ModalStatusComponent,
     ModalTicketComponent,
+    BoardComponent,
+    ModalMsgComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -46,7 +52,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatIconModule,
     MatDialogModule,
     MatInputModule,
-    ScrollingModule
+    ScrollingModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],

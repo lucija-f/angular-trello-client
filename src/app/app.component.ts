@@ -1,5 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
-import { StatusComponent } from './status/status.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Board } from 'src/models/board';
+import { BoardComponent } from './board/board.component';
+import { BoardService } from './services/board.service';
 
 
 @Component({
@@ -7,11 +9,25 @@ import { StatusComponent } from './status/status.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  @ViewChild(StatusComponent) statusComponent: StatusComponent;
+  boards: Board[]
+  selectVal: number;
+  @ViewChild(BoardComponent) boardComponent: BoardComponent;
 
-  addNewColumn() {
-    this.statusComponent.addStatusColumn();
+  constructor(private boardService: BoardService) {}
+
+  ngOnInit(): void {
+    this.boardService.getBoards().subscribe((data: Board[]) => {
+      this.boards = data;
+    })
   }
+
+  changeBoard(selectVal: number){
+    this.boardComponent.showBoard(selectVal);
+  }
+
+  // addNewColumn() {
+  //   this.statusComponent.addStatusColumn();
+  // }
 }

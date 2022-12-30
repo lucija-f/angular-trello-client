@@ -1,6 +1,9 @@
 .board-element {
   padding: 2%;
   height: auto;
+  background-color: rgba(0, 0, 0, 0.147);
+  font-weight: 600;
+  color: rgb(57, 57, 57);
 }
 
 .board-handle{
@@ -8,15 +11,4 @@
   padding: 0% 1%;
   overflow-x: auto;
   white-space: nowrap;
-}
-
-.plus-button {
-	border: 2px solid rgb(220, 217, 217);
-  color: rgb(220, 217, 217);
-	background-color: transparent;
-	font-size: 22px;
-	height: 2em;
-	width: 2em;
-	border-radius: 999px;
-  cursor: pointer;
 }

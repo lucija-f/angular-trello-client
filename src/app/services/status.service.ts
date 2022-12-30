@@ -12,8 +12,8 @@ export class StatusService {
 
   constructor(private http: HttpClient) {}
 
-  getStatuses(): Observable<Status[]> {
-    return this.http.get<Status[]>(`${this.baseUrl}`);
+  getStatuses(boardId: number): Observable<Status[]> {
+    return this.http.get<Status[]>(`${this.baseUrl}/board/${boardId}`);
   }
 
   addStatusColumn(status: Status): Observable<Status> {

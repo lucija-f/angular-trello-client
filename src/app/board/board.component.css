@@ -1,0 +1,10 @@
+.plus-button {
+	border: 2px solid rgb(220, 217, 217);
+  color: rgb(220, 217, 217);
+	background-color: transparent;
+	font-size: 22px;
+	height: 2em;
+	width: 2em;
+	border-radius: 999px;
+  cursor: pointer;
+}

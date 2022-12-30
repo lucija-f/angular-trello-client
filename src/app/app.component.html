@@ -1,10 +1,26 @@
 <div class="board-element">
-  <app-drop-down></app-drop-down>
+  <mat-label style="width: 20%; display: inline-block; font-size: 20px;">TRELLO BOARD</mat-label>
+  <mat-form-field appearance = outline>
+    <div style="width: auto; display: inline-block;">
+    
+      <mat-select placeholder="CHOOSE YOUR BOARD" [(value)]="selectVal" (selectionChange)="changeBoard(selectVal)">
+        <mat-option 
+          *ngFor="let board of boards" 
+          [value]="board.id">
+          {{board.name}}
+        </mat-option>
+      </mat-select>
+    </div>
+  </mat-form-field>
 </div>
-<div  cdkDropListGroup class="board-handle">
+<div class="board-handle">
+  <board [id]="selectVal"></board>
+</div>
+
+<!-- <div  cdkDropListGroup class="board-handle">
   <status-column></status-column>
   <button (click)="addNewColumn()" class="plus-button">+</button>
-</div>
+</div> -->
 
 
 

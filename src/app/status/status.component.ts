@@ -1,17 +1,21 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { StatusService } from '../services/status.service';
 import { Status } from 'src/models/status';
 import { TicketComponent } from '../ticket/ticket.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalStatusComponent } from '../modal-status/modal-status.component';
+import { ModalMsgComponent } from '../modal-msg/modal-msg.component';
 
 @Component({
   selector: 'status-column',
   templateUrl: './status.component.html',
   styleUrls: ['./status.component.css']
 })
-export class StatusComponent implements OnInit {
+export class StatusComponent {
+
+  // decorate the property with @Input()
+  @Input() boardId: number;
 
   title: string;
   public statuses: Status[];
@@ -23,21 +27,27 @@ export class StatusComponent implements OnInit {
     this.ticketComponent.addNewTicket(status);
   }
 
-  ngOnInit(): void {
-    this.statusService.getStatuses().subscribe((data: Status[]) => {
-      console.log(data);
+  showColumns(boardId: number){
+    this.statusService.getStatuses(boardId).subscribe((data: Status[]) => {
       this.statuses = data;
     })
   }
 
-  addStatusColumn(){
-    this.statusService.addStatusColumn({name: 'New Status', boardId: 3}).subscribe(
-      {
-        next: (v) => this.statuses.push(v),
-        error: (e) => console.error(e),
-        complete: () => console.info('complete') 
+  addStatusColumn(boardId: number){
+    if (this.statuses != undefined){
+      console.log('BoardID', boardId);
+      
+      this.statusService.addStatusColumn({name: 'New Status', boardId: boardId}).subscribe(
+        {
+          next: (v) => this.statuses.push(v),
+          error: (e) => console.error(e),
+          complete: () => console.info('complete') 
+        }
+      );
+    } else {
+      this.openPopupMsg('Please, choose your board to add a new Status Column.');
     }
-    );
+    
   }
 
   deleteStatusColumn(statusId: number){
@@ -67,7 +77,7 @@ export class StatusComponent implements OnInit {
     );
   }
 
-  OpenPopup(statusId: number){
+  openPopup(statusId: number){
     const dialogRef = this.dialog.open(ModalStatusComponent, {
       width: '400px',
       data: {title: this.title, statusId: statusId},
@@ -76,6 +86,13 @@ export class StatusComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.title = result;
       this.patchStatusColumn(statusId, this.title);
+    });
+  }
+
+  openPopupMsg(msg: string) {
+    const dialogRef = this.dialog.open(ModalMsgComponent, {
+      width: '400px',
+      data: {msg: msg},
     });
   }
 
